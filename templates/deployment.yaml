@@ -36,10 +36,26 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef: 
+                name: privoxy-vpn
+                optional: true
+            - secretRef:
+                name: privoxy-vpn
+                optional: true
           ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
+            - name: port1
+              containerPort: {{ .Values.service.port1 }}
               protocol: TCP
+            - name: port2
+              containerPort: {{ .Values.service.port2 }}
+              protocol: TCP
+            - name: port3
+              containerPort: {{ .Values.service.port3 }}
+              protocol: TCP
+            - name: port4
+              containerPort: {{ .Values.service.port4 }}
+              protocol: UDP
           livenessProbe:
             {{- toYaml .Values.livenessProbe | nindent 12 }}
           readinessProbe:
