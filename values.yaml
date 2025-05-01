@@ -82,17 +82,17 @@ readinessProbe:
     port: port1
 
 # Additional volumes on the output Deployment definition.
-volumes:
-  - name: privoxy-config
-    persistentVolumeClaim:
-      name: config
-      size: 1Gi
+volumes: []
+  # - name: privoxy-config
+  #   persistentVolumeClaim:
+  #     name: config
+  #     size: 1Gi
 
 # Additional volumeMounts on the output Deployment definition.
-volumeMounts:
-  - name: privoxy-config
-    mountPath: "/config"
-    readOnly: false
+volumeMounts: []
+  # - name: privoxy-config
+  #   mountPath: "/config"
+  #   readOnly: false
 
 nodeSelector: {}
 
