@@ -74,12 +74,12 @@ resources:
     memory: 128Mi
 
 # This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
-livenessProbe:
-  tcpSocket:
-    port: port1
-readinessProbe:
-  tcpSocket:
-    port: port1
+# livenessProbe:
+#   tcpSocket:
+#     port: port1
+# readinessProbe:
+#   tcpSocket:
+#     port: port1
 
 # Additional volumes on the output Deployment definition.
 volumes: []
